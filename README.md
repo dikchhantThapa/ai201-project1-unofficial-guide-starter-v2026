@@ -26,6 +26,7 @@
      this repo.
 
      Milestone 5. -->
+The Unofficial Guide is a RAG system that answers questions using the campus_life corpus. The corpus contains student-facing information about topics such as housing, dining, transportation, registration, and campus services. The system retrieves relevant documents before generating an answer and includes the source document in its response.
 
 ## Chunking Strategy
 
