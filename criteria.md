@@ -23,19 +23,20 @@ For at least 4 of my 5 test questions, the retrieved chunks include one that
 contains the answer.
 
 **Why this target:**
+Most of my questions are directly answerable from one document, but I want to allow one retrieval miss because semantic search might not always rank the best chunk highly enough.
 <!-- e.g. "One of my questions is about a topic only two documents mention, so
      I expect that one to be hard." -->
-
 ---
+
 
 ## 2. Every answer names a source
 
 Every answer the system produces names at least one source document.
 
 **Why this target:**
+If the system has enough information to answer a question, it should always identify the source document so the answer can be verified against the retrieved material.
 <!-- Why all five and not four? What about your setup makes that achievable —
      or what would have to go wrong for it not to be? -->
-
 ---
 
 ## 3. The relevance gate stops out-of-corpus questions
@@ -50,13 +51,16 @@ in at least 4 of 5 tries.
      just keep five of them, or the "4 of 5" above has nothing to be 4 of. -->
 
 **Why this target:**
+I don't want the system to answer out-of-context questions, but I want to allow for one borderline case because vector similarity is imperfect.
 <!-- What did your distances look like when you set the cutoff in Milestone 4?
      Was there a clean gap, or did the two groups overlap? -->
 
 ---
 
+
 ## 4. Something about your chunks
 
+At least 4 of 5 sampled chunks should contain enough context to answer a question on their own without including multiple unrelated topics.
 <!-- YOU WRITE THIS ONE.
 
      How would you know if your chunks were the right size? Name something
@@ -72,13 +76,13 @@ in at least 4 of 5 tries.
 
 
 **Why this target:**
-
+Most campus_life documents are short posts with useful information concentrated in one or a few sentences, so I want most chunks to remain self-contained without combining unrelated topics.
 
 
 ---
 
 ## 5. Your choice
-
+I want the answers to be correct and the cited source to actually support them, because a citation is useless if the document does not support the claim.
 <!-- YOU WRITE THIS ONE TOO.
 
      Pick something you actually care about getting right. It could be about
@@ -90,7 +94,7 @@ in at least 4 of 5 tries.
 
 
 **Why this target:**
-
+We want the answers to be correct and the source to be correct, and not just merely present, because citation is useless if the cited document doesn't actually support the claim.
 
 
 ---
