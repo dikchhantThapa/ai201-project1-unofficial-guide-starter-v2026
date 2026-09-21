@@ -109,13 +109,17 @@ The bad: known damp problem on the ground floor; two rooms were taken offline in
      visible. Milestone 4. -->
 
 **Question:**
+When can I change my meal plan?
 
 **Answer:**
 
 ```
+You can change your meal plan tier once, during the first ten days of the semester.
+Source: `admin_meal_plan_changes.txt`
 ```
 
-**My relevance cutoff:**
+**My relevance cutoff:** 0.6
+I kept the cutoff at 0.6 because my five in-corpus questions had best distances between 0.278 and 0.478, while my five out-of-scope questions ranged from 0.825 to 0.934. This left a clear separation between relevant and unrelated questions, so I kept the starter cutoff of 0.6.
 
 <!-- The number you set in config.py, and how you got there.
 
@@ -128,7 +132,16 @@ The bad: known damp problem on the ground floor; two rooms were taken offline in
 
 | Question | In corpus? | Best distance |
 |---|---|---|
-|  |  |  |
+| How late is the library open during midterms? | Yes | 0.437 |
+| How can I pay for my laundry in Aldridge Hall? | Yes | 0.309 |
+| How long does it take to go from Aldridge Hall to the science quad? | Yes | 0.397 |
+| What should I wear during winter? | Yes | 0.478 |
+| When can I change my meal plan? | Yes | 0.278 |
+| What is the capital of Mongolia? | No | 0.825 |
+| How do I change the oil in a diesel engine? | No | 0.934 |
+| Who won the 1994 World Cup? | No | 0.886 |
+| What is the recommended dosage of ibuprofen for a headache? | No | 0.844 |
+| How do I write a for loop in Rust? | No | 0.896 |
 
 ## How I Used AI
 
