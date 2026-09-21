@@ -27,7 +27,7 @@ QUESTIONS = [
     {"question": "How can I pay for my laundry in aldridge hall?", "expects": "card only"},
     {"question": "How long does it take to go from Aldridge Hall to the science quad?", "expects": "4 minutes walking"},
     {"question": "What should I wear during winter?", "expects": "layering"},
-    {"question": "When can I change my mean plan?", "expects": "in the first ten days of the semester"},
+    {"question": "When can I change my meal plan?", "expects": "in the first ten days of the semester"},
 ]
 
 # Questions from a different world entirely. Your gate should refuse all five.
