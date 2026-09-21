@@ -1,19 +1,7 @@
 # The Unofficial Guide
 
 <!-- Replace this line with your name and which corpus you picked. -->
-
-> **This file is your submission.** Fill it in as you go — most sections get
-> written during the milestone that produces them, not at the end.
->
-> How the starter works, and every command you'll need, is in `RUNNING.md`.
-> Leave that file alone.
->
-> **Paste everything as text.** No screenshots, no video. A typed table gets
-> full credit; a picture of the same table gets none.
->
-> Delete these instruction blocks as you replace them. The `<!-- -->` comments
-> are notes to you and don't show up when the page renders — you can leave them
-> or remove them.
+**Dikchhant Thapa — Corpus: `campus_life`**
 
 ---
 
@@ -31,7 +19,9 @@ The Unofficial Guide is a RAG system that answers questions using the campus_lif
 ## Chunking Strategy
 
 **Chunk size:** 450
+
 **Overlap:** 0
+
 I chose a maximum chunk size of 450 characters because the corpus averages about 317 characters per document, while the longest documents are around 549 characters. This keeps most short posts intact while allowing longer multi-paragraph posts to split at paragraph boundaries instead of being cut in the middle of a sentence.
 <!-- What about YOUR documents made you pick these numbers? Short posts and
      long sectioned guides don't want the same chunking, and "800 seemed
@@ -54,44 +44,68 @@ I chose a maximum chunk size of 450 characters because the corpus averages about
 
      Milestone 3. -->
 
+### Chunk 1
 
-======================================================================
-Chunk 1  |  source: admin_add_drop_deadline.txt#0  |  produced by: chunker.py::split_documents
-======================================================================
+**Source:** `admin_add_drop_deadline.txt#0`  
+**Produced by:** `chunker.py::split_documents`
+
+```text
 On the add/drop deadline
 
 You can add a course through the end of the second week. Dropping is a longer window — through the end of week six — but a drop after week two shows as a W on your transcript. Nothing anywhere on the registrar's site says this plainly, and students find out from each other.
+```
 
-======================================================================
-Chunk 2  |  source: course_biol_160_exams.txt#0  |  produced by: chunker.py::split_documents
-======================================================================
+
+### Chunk 2
+
+**Source:** `course_biol_160_exams.txt#0`  
+**Produced by:** `chunker.py::split_documents`
+
+```text
 BIOL 160 Cell Biology — assessment
 
 Four unit tests and a cumulative final. Not curved.
 
 The unit tests come fast, roughly every three weeks; falling behind once is very hard to recover from.
+```
 
-======================================================================
-Chunk 3  |  source: course_math_220_exams.txt#0  |  produced by: chunker.py::split_documents
-======================================================================
+
+
+### Chunk 3
+
+**Source:** `course_math_220_exams.txt#0`  
+**Produced by:** `chunker.py::split_documents`
+
+```text
 MATH 220 Linear Algebra — assessment
 
 Two midterms and a cumulative final. Curved to a b- median.
 
 The problem sets are the course; the lectures make sense afterwards rather than during.
+```
 
-======================================================================
-Chunk 4  |  source: dining_the_ridgeway_cafe.txt#0  |  produced by: chunker.py::split_documents
-======================================================================
+
+
+### Chunk 4
+
+**Source:** `dining_the_ridgeway_cafe.txt#0`  
+**Produced by:** `chunker.py::split_documents`
+
+```text
 The Ridgeway Café
 
 Second-year here. Wait times: 10 to 15 minutes at 12:30, none after 2:00. The thing worth going for is the only place on campus with real espresso. The thing to know is that seating is tight; about 40 seats for a building of 900.
 
 Hours are 7:00am to 4:00pm weekdays only. Costs declining balance only, no meal swipes.
+```
 
-======================================================================
-Chunk 5  |  source: housing_morrow_house.txt#0  |  produced by: chunker.py::split_documents
-======================================================================
+
+### Chunk 5
+
+**Source:** `housing_morrow_house.txt#0`  
+**Produced by:** `chunker.py::split_documents`
+
+```text
 Morrow House — what it's actually like
 
 Just finished a year in this building. Built 1954, partially renovated 2008. Rooms are singles and doubles, hall bathrooms.
@@ -99,7 +113,7 @@ Just finished a year in this building. Built 1954, partially renovated 2008. Roo
 The good: cheapest housing tier by about $900 a year, and the singles are real singles.
 
 The bad: known damp problem on the ground floor; two rooms were taken offline in 2024.
-
+```
 
 
 
@@ -119,6 +133,7 @@ Source: `admin_meal_plan_changes.txt`
 ```
 
 **My relevance cutoff:** 0.6
+
 I kept the cutoff at 0.6 because my five in-corpus questions had best distances between 0.278 and 0.478, while my five out-of-scope questions ranged from 0.825 to 0.934. This left a clear separation between relevant and unrelated questions, so I kept the starter cutoff of 0.6.
 
 <!-- The number you set in config.py, and how you got there.
@@ -155,9 +170,10 @@ I kept the cutoff at 0.6 because my five in-corpus questions had best distances 
      Milestone 5. -->
 
 **1.**
+I used AI to help me understand how to replace the starter's fixed-size chunking with a paragraph-based strategy. It suggested grouping complete paragraphs up to a maximum chunk size instead of cutting blindly by character count. I chose a 450-character maximum based on the size of the campus_life documents and used 0 overlap because the chunks split at paragraph boundaries.
 
 **2.**
-
+I used AI to help me understand the difference between retrieval distance, the relevance cutoff, and final answer correctness. After comparing my in-corpus and out-of-scope distances, I decided to keep the starter cutoff at 0.6.
 <!-- ── Stretch features ─────────────────────────────────────────────────────
      Doing one? Say so here BEFORE you start. A feature this README never
      claims earns nothing.
