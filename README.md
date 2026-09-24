@@ -291,11 +291,11 @@ The answer is supported by the cited source, but the original criterion did not 
 
 | # | Criterion | Verdict | How I decided |
 |---|---|---|---|
-| 1 |  |  |  |
-| 2 |  |  |  |
-| 3 |  |  |  |
-| 4 |  |  |  |
-| 5 |  |  |  |
+| 1 | Retrieved chunks contain the answer | MET | The target was at least 4 of 5, and all three runs measured 4/5. |
+| 2 | Every answer names a source | MISSED | The target was 5 of 5, but all three runs measured 4/5 because the library answer did not name a source document. |
+| 3 | The relevance gate stops out-of-corpus questions | MET | The gate refused all 5 out-of-scope questions, exceeding the 4-of-5 target. |
+| 4 | Sampled chunks are self-contained without unrelated topics | MET | All 5 sampled chunks met the criterion, exceeding the 4-of-5 target. |
+| 5 | Answer is correct and cited source supports it | MET | Using the revised 4-of-5 target, four of the five test questions produced correct answers with cited sources that supported the answer. |
 
 ## Diagnoses
 

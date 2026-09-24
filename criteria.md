@@ -95,7 +95,9 @@ I want the answers to be correct and the cited source to actually support them, 
 
 **Why this target:**
 We want the answers to be correct and the source to be correct, and not just merely present, because citation is useless if the cited document doesn't actually support the claim.
-
+> **Revised in unit 2:** For at least 4 of my 5 test questions, the answer must be correct and the cited source must contain information supporting the answer.
+>
+> **Why revised:** The original criterion did not specify how many answers needed to meet the requirement, so it could not be scored consistently as MET or MISSED. I added a measurable 4-of-5 target while keeping the original requirement that both the answer and citation be correct.
 
 ---
 
