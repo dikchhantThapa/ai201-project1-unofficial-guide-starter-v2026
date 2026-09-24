@@ -201,15 +201,82 @@ I used AI to help me understand the difference between retrieval distance, the r
 
 | Criterion | Target | Run 1 | Run 2 | Run 3 | Verdict |
 |---|---|---|---|---|---|
-| 1. Retrieved chunk contains the answer | 4 of 5 |  |  |  |  |
-| 2. Every answer names a source | 5 of 5 |  |  |  |  |
-| 3. Gate stops out-of-corpus questions | 4 of 5 |  |  |  |  |
-| 4. | | | | | |
-| 5. | | | | | |
+| 1. Retrieved chunk contains the answer | 4 of 5 | 4/5 | 4/5 | 4/5 |  |
+| 2. Every answer names a source | 5 of 5 | 4/5 | 4/5 | 4/5 |  |
+| 3. Gate stops out-of-corpus questions | 4 of 5 | 5/5 | 5/5 | 5/5 |  |
+| 4. Sampled chunks are self-contained without unrelated topics| 4 of 5 | 5/5 | 5/5 | 5/5 | |
+| 5. Answer is correct and cited source supports it | No measurable target written | - | - | - | |
 
 <!-- Underneath, paste the REAL output for each criterion from one of your
      runs — the actual text your system produced, not a description of it.
      Name the file and function that produced it. -->
+### Criterion 1 evidence
+
+From `results/run_2026-09-23_1738_before.md`, produced by `run_eval.py::main`.
+
+Question: How long does it take to go from Aldridge Hall to the science quad?
+
+- Best distance: 0.3972 (passed the gate)
+- Sources retrieved: `dining_halden_hall_followup.txt`, `dining_pellew_dining_hall.txt`, `dining_pellew_dining_hall_followup.txt`, `housing_aldridge_hall.txt`, `transit_walking.txt`
+
+```text
+It takes 4 minutes to go from Aldridge Hall to the science quad (transit_walking.txt and housing_aldridge_hall.txt).
+```
+
+The library-hours question was the one question I did not count because the retrieved document says the library is open until 2am "during term," but does not specifically state the hours "during midterms."
+
+### Criterion 2 evidence
+
+From `results/run_2026-09-23_1738_before.md`, produced by `run_eval.py::main`.
+
+Question: How late is the library open during midterms?
+
+```text
+I do not have enough information to answer how late the library is open during midterms, as the documents only mention its hours during term and reading week.
+```
+
+No source filename was named in this answer. The other four questions named at least one source document.
+
+### Criterion 3 evidence
+
+Produced by `run_eval.py::check_out_of_scope`.
+
+```text
+refused  (best distance 0.825)  What is the capital of Mongolia?
+refused  (best distance 0.934)  How do I change the oil in a diesel engine?
+refused  (best distance 0.886)  Who won the 1994 World Cup?
+refused  (best distance 0.844)  What is the recommended dosage of ibuprofen for a headache?
+refused  (best distance 0.896)  How do I write a for loop in Rust?
+-> gate refused 5 of 5
+```
+
+### Criterion 4 evidence
+
+Produced by `chunker.py::split_documents`.
+
+Source: `admin_add_drop_deadline.txt#0`
+
+```text
+On the add/drop deadline
+
+You can add a course through the end of the second week. Dropping is a longer window — through the end of week six — but a drop after week two shows as a W on your transcript. Nothing anywhere on the registrar's site says this plainly, and students find out from each other.
+```
+
+The five sampled chunks in the Unit 1 section were each self-contained and did not combine unrelated topics.
+
+### Criterion 5 evidence
+
+From `results/run_2026-09-23_1738_before.md`, produced by `run_eval.py::main`.
+
+Question: When can I change my meal plan?
+
+```text
+You can change your meal plan tier once, during the first ten days of the semester. After that, it is locked.
+
+Source: admin_meal_plan_changes.txt
+```
+
+The answer is supported by the cited source, but the original criterion did not specify how many answers had to satisfy this requirement, so it does not have a measurable target.
 
 ## Verdicts
 
