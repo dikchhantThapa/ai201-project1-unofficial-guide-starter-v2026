@@ -299,6 +299,7 @@ The answer is supported by the cited source, but the original criterion did not 
 
 ## Diagnoses
 
+Criterion 2 was missed at the **generation** stage. The correct library-hours document, `study_library_hours.txt`, was successfully retrieved, so retrieval itself was not the problem. However, the document says the library is open until 2am "during term," while the question asks specifically about "midterms." The model treated that wording difference as insufficient information and returned a refusal-style answer without naming a source document. Because the other four questions did name sources, this caused Criterion 2 to score 4/5 instead of the required 5/5.
 <!-- For each miss: which stage caused it, and how. The stage alone isn't
      enough — you need the mechanism.
 
