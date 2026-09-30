@@ -159,7 +159,7 @@ I kept the cutoff at 0.6 because my five in-corpus questions had best distances 
 | How do I write a for loop in Rust? | No | 0.896 |
 
 ## How I Used AI
-I used AI to help me interpret the baseline evaluation results and distinguish exact-substring scorer failures from actual system failures. Based on the missed source-attribution criterion, I used AI to help identify the generation prompt as the smallest place to make one targeted change. I reviewed the diff before rerunning the evaluation and kept the change to one prompt instruction.
+
 <!-- Two specific moments. For each: what you asked for, what came back, and
      what you changed about it.
 
@@ -174,6 +174,9 @@ I used AI to help me understand how to replace the starter's fixed-size chunking
 
 **2.**
 I used AI to help me understand the difference between retrieval distance, the relevance cutoff, and final answer correctness. After comparing my in-corpus and out-of-scope distances, I decided to keep the starter cutoff at 0.6.
+
+**3.** 
+I used AI to help me interpret the baseline evaluation results and distinguish exact-substring scorer failures from actual system failures. Based on the missed source-attribution criterion, I used AI to help identify the generation prompt as the smallest place to make one targeted change. I reviewed the diff before rerunning the evaluation and kept the change to one prompt instruction.  
 <!-- ── Stretch features ─────────────────────────────────────────────────────
      Doing one? Say so here BEFORE you start. A feature this README never
      claims earns nothing.
