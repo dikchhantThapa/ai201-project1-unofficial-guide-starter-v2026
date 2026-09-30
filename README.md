@@ -159,7 +159,7 @@ I kept the cutoff at 0.6 because my five in-corpus questions had best distances 
 | How do I write a for loop in Rust? | No | 0.896 |
 
 ## How I Used AI
-
+I used AI to help me interpret the baseline evaluation results and distinguish exact-substring scorer failures from actual system failures. Based on the missed source-attribution criterion, I used AI to help identify the generation prompt as the smallest place to make one targeted change. I reviewed the diff before rerunning the evaluation and kept the change to one prompt instruction.
 <!-- Two specific moments. For each: what you asked for, what came back, and
      what you changed about it.
 
@@ -355,6 +355,10 @@ Yes. Before the change, Criterion 2 scored 4/5 in all three runs because the lib
      Milestone 4. -->
 
 ## What's Still Broken
+None of the five acceptance criteria are still missed after the improvement. However, the library-hours test question is still not answered directly. The retrieved document says the library is open until 2am "during term," while the question asks about "midterms," so the model still refuses to make that connection. I did not make another system change because this unit calls for one targeted improvement, and my improvement was focused on the missed source-attribution criterion.
+
+The exact-substring scorer also does not always reflect whether an answer is actually correct. For example, correct answers such as "4 minutes" and "layers" can be marked as failures when the expected phrase uses slightly different wording.
+
 
 <!-- For each criterion still missed after your fix: what you'd do about it,
      and why you stopped where you did.
@@ -365,7 +369,7 @@ Yes. Before the change, Criterion 2 scored 4/5 in all three runs because the lib
      Milestone 5. -->
 
 ## What I'd Do Differently
-
+I would write Criterion 5 as a measurable criterion from the beginning. Instead of only saying that answers should be correct and supported by their cited source, I would specify that at least 4 of 5 test questions must meet that requirement. This would make the criterion possible to score consistently without needing a revision later.
 <!-- Knowing what you know now — which of your five criteria would you write
      differently, and why?
 
