@@ -321,8 +321,12 @@ Criterion 2 was missed at the **generation** stage. The correct library-hours do
 ## The Improvement
 
 **What I changed:**
+I changed one line in the generation instruction so that the model must always name at least one relevant document, even when it says it does not have enough information to fully answer the question.
+
 
 **Why I picked it:**
+Criterion 2 failed because the relevant library document was retrieved successfully, but the generated refusal-style answer did not name a source. Since retrieval was already working, I targeted the generation stage.
+
 
 <!-- Connect it to a specific diagnosis above in one sentence. If you can't,
      you picked a fix because it sounded impressive. -->
@@ -334,13 +338,14 @@ Criterion 2 was missed at the **generation** stage. The correct library-hours do
 
 | Criterion | Target | Run 1 | Run 2 | Run 3 | Verdict |
 |---|---|---|---|---|---|
-| 1. Retrieved chunk contains the answer | 4 of 5 |  |  |  |  |
-| 2. Every answer names a source | 5 of 5 |  |  |  |  |
-| 3. Gate stops out-of-corpus questions | 4 of 5 |  |  |  |  |
-| 4. | | | | | |
-| 5. | | | | | |
+| 1. Retrieved chunk contains the answer | 4 of 5 | 4/5 | 4/5 | 4/5 | MET |
+| 2. Every answer names a source | 5 of 5 | 5/5 | 5/5 | 5/5 | MET |
+| 3. Gate stops out-of-corpus questions | 4 of 5 | 5/5 | 5/5 | 5/5 | MET |
+| 4. Sampled chunks are self-contained without unrelated topics | 4 of 5 | 5/5 | 5/5 | 5/5 | MET |
+| 5. Answer is correct and cited source supports it | 4 of 5 | 4/5 | 4/5 | 4/5 | MET |
 
 **Did it help?**
+Yes. Before the change, Criterion 2 scored 4/5 in all three runs because the library response did not name a source. After the prompt change, the library response named at least one source document in all three runs, so Criterion 2 improved to 5/5 in every run. The other criteria remained at or above their targets.
 
 <!-- Say plainly whether it did, and how you know. If it made things worse,
      say that — a change that backfired, honestly reported, earns full credit
